@@ -1,0 +1,111 @@
+//Question
+//Write a program to find the sum of the following series: 1/1!+2/2!+3/3!+.......+N/N!
+//Programming Language used is C
+
+#include<stdio.h>
+int facto(int);                                                                   //Function declaration
+int main()
+{
+    int n,i;
+    float t,f,q,sum=0.0;                                                          //Variable declaration
+    printf("Enter the number of elements in the series :");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)                                                             //Loop to find sum upto n terms
+    {
+       t=i;
+       f=facto(t);                                                                //Function call
+       q=t/f;
+       sum=sum+q;
+    }
+    printf("\nSum of series upto %d terms is: %f",n,sum);
+    return 0;
+}
+int facto(int x)                                                                  //Function to find factorial of number
+{
+    int fact=1;
+    while(x)
+    {
+        fact=fact*x;
+        --x;
+    }
+    return fact;
+}
+
+
+//Question
+//Write a function that takes a list of strings and prints them one per line in a rectangular frame
+//Programming language used is C
+
+#include<stdio.h>
+int main()
+{
+    int c;
+    printf("Enter the list of string:");
+    c=getchar();                                                                  //get the characters of the string
+    printf("\n*********\n*");
+    while(c!=EOF)                                                                //Loop until the end of list of strings
+    {
+        if(c==','||c==' ')                                                       //Checking when each string ends
+        {
+            printf("*");
+            putchar('\n');
+            printf("*");
+         }
+         else
+         {
+            putchar(c);
+         }
+         c=getchar();
+    }
+    printf("*\n*********\n");
+    return 0;
+} 
+
+
+//Question
+//Modify a multidimensional array to make it one dimensional array
+//Programming language used is C
+
+#include <stdio.h>
+int main()
+{
+    int t,r,c,n,i,j,k,z;                                                      //Variable Declaration
+    int w=0;
+    printf("Enter the number of tables of the array:");
+    scanf("%d",&t);
+    printf("\nEnter the number of rows of the array:");
+    scanf("%d",&r);
+    printf("\nEnter the number of columns of the array:");
+    scanf("%d",&c);
+    n=t*r*c;                                                                 //Calculating number of elements of 1D array
+    int a[10][10][10],b[1000];                                               //Array declaration
+    printf("Enter the array elements:\n");                                  
+    for(i=0;i<t;i++)                                                         //Loop to store the multi dimensional array elements
+    {
+        for(j=0;j<r;j++)
+        {
+            for(k=0;k<c;k++)
+            {
+                scanf("%d",&a[i][j][k]);
+            }
+        }
+    }
+    for(i=0;i<t;i++)
+    {
+        for(j=0;j<r;j++)
+        {
+            for(k=0;k<c;k++)
+            {
+                b[w++]=a[i][j][k];                                          //Storing elements of multidimensional array to 1D array
+            }
+        }
+    }
+    printf("\n1D array\n");
+    for(z=0;z<n;z++)                                                        //Loop to print 1D array
+     printf("%d  ",b[z]);
+    return 0;
+}
+   
+   ***END***
+   
+   
